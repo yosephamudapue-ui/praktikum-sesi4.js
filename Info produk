@@ -1,0 +1,38 @@
+let produk= {
+    name:"mouse wireless",
+    harga_barang: 300000,
+    stok_tersedia: 200,
+    diskon: 0.35,
+    infoProduk: function(){
+        return(
+            "Name:" + this.name+"\n"+
+            "Harga barang:"+ this.harga_barang +"\n" +
+            "Stok barang:" + this.stok_tersedia +"\n" +
+            "Diskon barang:" + this.diskon 
+        )
+    },
+Harga_Diskon : function(){
+    let hasil= this.harga_barang - (this.harga_barang *this.diskon);
+    return hasil;
+},
+    beli_produk: function(jumlah){
+        if(this.stok_tersedia <= 0){
+            console.log("maaf,stok sudah habis!");
+        } else if (jumlah > this.stok_tersedia){
+            console.log("stok tidak mencukupi! Hanya tersisa " (this.stok) +"item");
+        } else {
+            this.stok_tersedia = this.stok_tersedia - jumlah;
+            console.log("Pembelian berhasil! Sisa stok: "+ this.stok_tersedia);
+            if (this.stok_tersedia <=0){
+                console.log("Stok produk kini habis, segara restock!");
+            }
+        }
+    }
+}
+console.log(produk.infoProduk());
+console.log("Harga setelah diskon:" +produk.Harga_Diskon());
+produk.beli_produk(3);
+produk.beli_produk(5);
+produk.beli_produk(2);
+produk.beli_produk(1);
+
